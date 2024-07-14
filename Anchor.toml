@@ -1,7 +1,7 @@
 [features]
 seeds = false
 skip-lint = false
-[programs.devnet]
+[programs.localnet]
 whitelist_gated_sale = "CRKtvQJeuqgASZzoSFnRh65ihHRVyMzidrw7sQmfYKi7"
 
 [registry]

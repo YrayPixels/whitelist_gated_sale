@@ -3,7 +3,7 @@ use anchor_spl::token::{self, Mint, Token, TokenAccount};
 // use mpl_token_metadata::instruction::{create_metadata_accounts, CreateMetadataAccountsArgs};
 // use mpl_token_metadata::state::Creator;
 
-declare_id!("9Gbwi5Et3btCXaa2u1XgYmfP7myDN6yp7xSbyMU86tmt");
+declare_id!("CRKtvQJeuqgASZzoSFnRh65ihHRVyMzidrw7sQmfYKi7");
 
 #[program]
 pub mod whitelist_gated_sale {
@@ -111,6 +111,7 @@ pub struct AddUser<'info> {
     #[account(mut)]
     pub state: Account<'info, State>,
     #[account(mut)]
+    /// CHECK: this account is just here to validate?
     pub new_account: AccountInfo<'info>,
     #[account(mut)]
     pub user: Signer<'info>,
@@ -121,6 +122,7 @@ pub struct RemoveUser<'info> {
     #[account(mut)]
     pub state: Account<'info, State>,
     #[account(mut)]
+    /// CHECK: this account is just here to validate?
     pub new_account: AccountInfo<'info>,
     #[account(mut)]
     pub user: Signer<'info>,
@@ -135,11 +137,13 @@ pub struct BuyToken<'info> {
     #[account(mut)]
     pub buyer: Signer<'info>,
     #[account(mut)]
+    /// CHECK: this account is just here to validate?
     pub treasury: AccountInfo<'info>,
     pub mint: Account<'info, Mint>,
     #[account(mut)]
     pub token_account: Account<'info, TokenAccount>,
     pub token_program: Program<'info, Token>,
+    /// CHECK: this account is from the token authority?
     pub token_authority: AccountInfo<'info>,
     pub system_program: Program<'info, System>,
 }
