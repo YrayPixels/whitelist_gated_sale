@@ -14,7 +14,7 @@ pub mod whitelist_gated_sale {
 
     pub fn initialize(
         ctx: Context<Initialize>,
-        unique_id: u64,
+        _unique_id: u64,
         whitelist: Vec<Pubkey>,
     ) -> Result<()> {
         let state = &mut ctx.accounts.state;
